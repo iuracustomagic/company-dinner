@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Customagic-dinner</title>
-
+{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">--}}
 </head>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -43,17 +43,17 @@
                     </div>
                 </div>
             @endif
-        <form class="form" method="post" action="{{ url('check') }}">
+        <form class="form" method="post" action="{{ url('repeat-check') }}">
             @csrf
             <img src="{{asset('images/food-service-logo.png')}}" alt="logo" width="200px">
-            <p class="mb-5 fs-5">Просканируйте или введите вручную номер карты</p>
+            <p class="mb-5 fs-5">Повторно распечатать</p>
             <div class="input-group mb-5 w-50">
                 <div class="input-group-text">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
                         <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
                     </svg>
-
+{{--                    <input class="form-check-input mt-0 " type="checkbox" value="" aria-label="Checkbox for following text input">--}}
                 </div>
                 <input type="text" id="scan_input" name="number" class="form-control" autocomplete="off" aria-label="Text input with checkbox">
             </div>
@@ -82,6 +82,6 @@
         }, 2000);
     </script>
 
-
+{{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>--}}
 </body>
 </html>

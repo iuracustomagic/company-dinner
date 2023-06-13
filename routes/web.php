@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'show']);
+Route::get('/repeat', [HomeController::class, 'repeat']);
 Route::post('/check', [HomeController::class, 'check'])->name('check');
+Route::post('/repeat-check', [HomeController::class, 'repeatCheck'])->name('repeat-check');
 Route::post('/upload', [ExcelImportController::class, 'upload'])->name('upload');
 Route::get('/orders','PrintController@index');
 Route::get('/print-view',[PrintController::class, 'printView'])->name('print-view');

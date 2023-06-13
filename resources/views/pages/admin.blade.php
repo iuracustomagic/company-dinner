@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Customagic-dinner</title>
-{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">--}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +16,17 @@
     <!-- Styles -->
     <style>
 
-
+.btn_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    width: 500px;
+    height: 400px;
+    border: 1px solid #6a6262;
+    border-radius: 4px;
+}
    </style>
 </head>
 <body>
@@ -41,10 +50,14 @@
                 </div>
             @endif
 
-            <div>
-                {{--                <button class="btnprn btn btn-default">Print</button>--}}
-                {{--                <a href="{{ url('/print-view') }}?date={{ $order->date}}&price={{ $order->price}}&name={{ $order->user_name}}" class="btnprn btn btn-default">Print</a>--}}
-                <button class="btnprn btn btn-default">Print</button>
+            <div class="btn_form">
+               <a href="{{url('/')}}" class="btn btn-primary btn-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg>
+                    <span class="ml-3">Вернуться</span></a>
+                <a href="{{url('/repeat')}}" class="btn btn-primary btn-lg">Повторно распечатать</a>
 
 
             </div>
@@ -61,44 +74,7 @@
 
     <script type="text/javascript">
 
-        function openPrintDialogue(){
-            $('<iframe>', {
-                name: 'myiframe',
-                class: 'printFrame'
-            })
-                .appendTo('body')
-                .contents().find('body')
-                .append(`
-            <div id="content" style="display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid black;
-                width: 100%;
-                height: 100%;">
-                <p style="font-size: 18px">{{ $date }}</p>
-                <p style="font-size: 26px">{{$price }} MDL</p>
-                <p style="font-size: 14px">Сотрудник:{{$name }}</p>
-            </div>
-  `);
 
-            window.frames['myiframe'].focus();
-            window.frames['myiframe'].print();
-            window.location.href = "/";
-
-
-            setTimeout(() => { $(".printFrame").remove(); }, 1000);
-        };
-
-
-
-
-        $(document).ready(function(){
-            $('.btnprn').on('click', openPrintDialogue);
-            // $('.btnprn').printPage();
-             setTimeout(()=> {$('.btnprn').trigger('click');}, 500)
-
-        });
 
     </script>
 
