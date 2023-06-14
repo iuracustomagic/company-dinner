@@ -40,6 +40,8 @@ class OrderCrudController extends CrudController
     protected function setupListOperation()
     {
 
+        $this->crud->addButtonFromView('top', 'report_form', 'report_form', 'beginning');
+
         $this->crud->addColumns([
             [
                 'name'  => 'created_at',
@@ -69,7 +71,16 @@ class OrderCrudController extends CrudController
             ],
             ]);
 
-
+   /*     $this->crud->addFilter([
+            'type'  => 'text',
+            'name'  => 'user_name',
+            'label' => trans('labels.user')
+        ],
+            false,
+            function($value) {
+                $this->crud->addClause('where', 'user_name', 'like', '%'.$value.'%');
+            });
+   */
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
